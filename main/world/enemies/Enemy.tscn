@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://main/world/enemies/enemy.gd" type="Script" id=1]
+[ext_resource path="res://main/world/player/hurt_timer.gd" type="Script" id=2]
+[ext_resource path="res://main/world/enemies/hurt_effect.tres" type="Material" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "stomped"
+length = 0.3
+
+[sub_resource type="Animation" id=4]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Enemy" type="Area2D" groups=[
+"Damage",
+]]
+collision_layer = 24
+collision_mask = 4
+script = ExtResource( 1 )
+invincibility = 0.8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Range" type="Area2D" parent="."]
+position = Vector2( 0, -0.280617 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/stomped = SubResource( 3 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="HurtTimer" type="Timer" parent="."]
+one_shot = true
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HurtTimer"]
+anims/hurt = SubResource( 4 )
+anims/okay = SubResource( 5 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+visible = false
+rect = Rect2( -40, -40, 80, 80 )
+
+[node name="HurtEffect" type="Particles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.49
+process_material = ExtResource( 3 )

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://main/world/bullets/bullet/Bullet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://main/world/bullets/gnome_hat/gnome_hat.gd" type="Script" id=2]
+[ext_resource path="res://main/world/bullets/gnome_hat/gnome_bullet.png" type="Texture" id=3]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 4, 0, -3, 4, -3, -4 )
+
+[node name="GnomeHat" instance=ExtResource( 1 )]
+rotation = -1.5708
+collision_mask = 0
+script = ExtResource( 2 )
+speed = 0.21
+life_time = 3.0
+damage = 1.0
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Sprite" parent="." index="1"]
+rotation = 1.5708
+texture = ExtResource( 3 )

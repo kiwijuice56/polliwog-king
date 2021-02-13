@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/OGGrevisedTaking_Over_the_Halberd.ogg-3a0ea42616ba0b2338720edd87d20228.oggstr"
+
+[deps]
+
+source_file="res://main/world/levels/level3/OGGrevisedTaking_Over_the_Halberd.ogg"
+dest_files=[ "res://.import/OGGrevisedTaking_Over_the_Halberd.ogg-3a0ea42616ba0b2338720edd87d20228.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

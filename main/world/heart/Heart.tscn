@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://main/world/heart/heart.png" type="Texture" id=1]
+[ext_resource path="res://main/world/heart/heart.gd" type="Script" id=2]
+[ext_resource path="res://main/world/heart/heal.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "collect"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 4 )
+
+[node name="Heart" type="Area2D" groups=[
+"Heart",
+]]
+collision_layer = 512
+collision_mask = 4
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0.5, 0.5 )
+z_index = 1
+texture = ExtResource( 1 )
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/collect = SubResource( 1 )
+anims/idle = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+rect = Rect2( -1, -1, 2, 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -7.0

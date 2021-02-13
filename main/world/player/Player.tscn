@@ -1,0 +1,246 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://main/world/player/player.png" type="Texture" id=1]
+[ext_resource path="res://main/world/player/player.gd" type="Script" id=2]
+[ext_resource path="res://main/world/player/hurt_effect.png" type="Texture" id=3]
+[ext_resource path="res://main/world/player/hurt_particles.tres" type="Material" id=4]
+[ext_resource path="res://main/world/player/hurt_timer.gd" type="Script" id=5]
+[ext_resource path="res://main/world/player/sound/eat.wav" type="AudioStream" id=6]
+[ext_resource path="res://main/world/player/sound/enemyhit.wav" type="AudioStream" id=8]
+[ext_resource path="res://main/world/player/sound/audio_player.gd" type="Script" id=9]
+[ext_resource path="res://main/world/player/sound/fall.wav" type="AudioStream" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.5, 7.5 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "crouch"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 1 ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 8, 9, 8 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+
+[sub_resource type="Animation" id=6]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( -0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 14 ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 4, 3 ]
+}
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 7, 10, 11, 10 ]
+}
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 7.5, 7.5 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 2, 2 )
+
+[sub_resource type="Animation" id=11]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 2 )
+speed = 80.0
+invincibility = 1.3
+size_step = 20
+max_size_steps = 2
+tongue_delay = 0.55
+tongue_offset = 4.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 15
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/crouch = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/idle_up = SubResource( 4 )
+anims/lick = SubResource( 5 )
+anims/lick_up = SubResource( 6 )
+anims/run = SubResource( 7 )
+anims/run_up = SubResource( 8 )
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 1656
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 9 )
+
+[node name="Mouth" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
+position = Vector2( 3, -4 )
+shape = SubResource( 10 )
+disabled = true
+
+[node name="TongueTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="HurtTimer" type="Timer" parent="."]
+one_shot = true
+script = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HurtTimer"]
+root_node = NodePath("../..")
+playback_speed = 0.8
+anims/hurt = SubResource( 11 )
+anims/okay = SubResource( 12 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+smoothing_enabled = true
+smoothing_speed = 7.0
+offset_v = -0.6
+
+[node name="HurtEffect" type="Particles2D" parent="." groups=[
+"Particle",
+]]
+emitting = false
+amount = 4
+lifetime = 1.5
+one_shot = true
+speed_scale = 3.0
+explosiveness = 0.21
+randomness = 0.15
+process_material = ExtResource( 4 )
+texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -8.0
+script = ExtResource( 9 )
+hurt_sound = ExtResource( 8 )
+jump_sound = ExtResource( 10 )
+eat_sound = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

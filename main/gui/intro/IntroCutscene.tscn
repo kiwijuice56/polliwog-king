@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://main/gui/intro/intro_cutscene.gd" type="Script" id=1]
+[ext_resource path="res://main/gui/intro/tile.png" type="Texture" id=2]
+[ext_resource path="res://main/gui/font/bold.tres" type="DynamicFont" id=3]
+[ext_resource path="res://main/gui/intro/frame1.png" type="Texture" id=4]
+[ext_resource path="res://main/gui/intro/frame2.png" type="Texture" id=5]
+[ext_resource path="res://main/gui/intro/frame3.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "in"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -192 ), Vector2( 0, 0 ) ]
+}
+
+[node name="IntroCutscene" type="CanvasLayer"]
+offset = Vector2( 0, -192 )
+transform = Transform2D( 1, 0, 0, 1, 0, -192 )
+script = ExtResource( 1 )
+images = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
+texts = [ "The evil Polliwog King was cooking a soup made from gnomes and fairies!", "But he soon noticed that he was all out of pixie dust to season it...", "There was only one option: take over the fairy kingdom!" ]
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -128.0
+margin_top = -96.0
+margin_right = 128.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 256, 192 )
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 6.0
+margin_top = 3.16928
+margin_right = 250.0
+margin_bottom = 18.1693
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Press Space to Continue"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -58.0
+margin_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer"]
+margin_left = 6.0
+margin_top = 19.0
+margin_right = 250.0
+margin_bottom = 34.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "The Polliwog King"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/in = SubResource( 1 )

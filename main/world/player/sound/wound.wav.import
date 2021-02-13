@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wound.wav-31f95f3c83f4d4d3313d497ce1903b8e.sample"
+
+[deps]
+
+source_file="res://main/world/player/sound/wound.wav"
+dest_files=[ "res://.import/wound.wav-31f95f3c83f4d4d3313d497ce1903b8e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,200 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://main/gui/font/bold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://main/gui/info/pause_info.gd" type="Script" id=2]
+[ext_resource path="res://main/gui/pause/pause_screen.gd" type="Script" id=3]
+[ext_resource path="res://main/gui/info/checkpoint_icon/checkpoint_icon.gd" type="Script" id=4]
+[ext_resource path="res://main/gui/info/coin_meter/coin_icon.gd" type="Script" id=5]
+[ext_resource path="res://main/gui/info/life_meter/life_meter.gd" type="Script" id=6]
+[ext_resource path="res://main/gui/info/life_meter/heart_gui1.png" type="Texture" id=7]
+[ext_resource path="res://main/gui/info/coin_meter/coin_gui.png" type="Texture" id=8]
+[ext_resource path="res://main/gui/info/life_meter/heart_gui2.png" type="Texture" id=9]
+[ext_resource path="res://main/gui/info/checkpoint_icon/checkpoint2.png" type="Texture" id=10]
+[ext_resource path="res://main/gui/info/score/score.gd" type="Script" id=11]
+[ext_resource path="res://main/gui/info/time/time.gd" type="Script" id=12]
+[ext_resource path="res://main/gui/intro/tile.png" type="Texture" id=13]
+
+[node name="Info" type="CanvasLayer"]
+
+[node name="OnScreenData" type="MarginContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_bottom = 45.0
+custom_constants/margin_right = 3
+custom_constants/margin_top = 3
+custom_constants/margin_left = 3
+custom_constants/margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OnScreenData"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 221.0
+margin_bottom = 63.0
+
+[node name="Row" type="HBoxContainer" parent="OnScreenData/VBoxContainer"]
+margin_left = 60.0
+margin_right = 218.0
+margin_bottom = 15.0
+size_flags_horizontal = 10
+size_flags_vertical = 0
+
+[node name="Score" type="Label" parent="OnScreenData/VBoxContainer/Row"]
+margin_right = 72.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
+text = "Score: 000000"
+script = ExtResource( 11 )
+
+[node name="Time" type="Label" parent="OnScreenData/VBoxContainer/Row"]
+margin_left = 76.0
+margin_right = 125.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
+text = "Time: 000"
+script = ExtResource( 12 )
+
+[node name="CoinIcon" type="HBoxContainer" parent="OnScreenData/VBoxContainer/Row"]
+margin_left = 129.0
+margin_right = 158.0
+margin_bottom = 15.0
+custom_constants/separation = 2
+script = ExtResource( 5 )
+
+[node name="Icon" type="TextureRect" parent="OnScreenData/VBoxContainer/Row/CoinIcon"]
+margin_right = 15.0
+margin_bottom = 15.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OnScreenData/VBoxContainer/Row/CoinIcon"]
+margin_left = 17.0
+margin_right = 29.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
+text = "x0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeMeter" type="TextureProgress" parent="OnScreenData/VBoxContainer"]
+margin_left = 160.0
+margin_top = 19.0
+margin_right = 218.0
+margin_bottom = 33.0
+size_flags_horizontal = 8
+max_value = 4.0
+step = 0.5
+value = 4.0
+texture_under = ExtResource( 9 )
+texture_progress = ExtResource( 7 )
+script = ExtResource( 6 )
+
+[node name="CheckpointIcon" type="TextureRect" parent="OnScreenData/VBoxContainer"]
+margin_left = 195.0
+margin_top = 37.0
+margin_right = 218.0
+margin_bottom = 60.0
+size_flags_horizontal = 10
+texture = ExtResource( 10 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseScreen" type="TextureRect" parent="."]
+pause_mode = 2
+visible = false
+self_modulate = Color( 1, 1, 1, 0.462745 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 13 )
+stretch_mode = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 6
+custom_constants/margin_top = 6
+custom_constants/margin_left = 6
+custom_constants/margin_bottom = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseScreen/MarginContainer"]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 250.0
+margin_bottom = 201.0
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="PauseScreen/MarginContainer/HBoxContainer"]
+margin_right = 37.0
+margin_bottom = 15.0
+size_flags_horizontal = 0
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Paused"
+
+[node name="Label2" type="Label" parent="PauseScreen/MarginContainer/HBoxContainer"]
+margin_left = 45.0
+margin_right = 244.0
+margin_bottom = 195.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Controls:
+ -Run: Arrow keys or AD keys
+ -Look up: Up arrow or W
+ -Jump: Space bar
+ -Tongue: Shift, Left Mouse, F, or J
+ -Pause/Unpause: P
+ -Fullscreen/Exit Fullscreen: ESC
+Make it to the end of the level and eat as many fairies as you can! (You can't eat the spineys though!)
+"
+autowrap = true
+
+[node name="Help" type="MarginContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -36.0
+custom_constants/margin_right = 3
+custom_constants/margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Help"]
+pause_mode = 2
+margin_left = 209.0
+margin_right = 253.0
+margin_bottom = 33.0
+size_flags_horizontal = 10
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "P: Pause
+R: Reset"
+script = ExtResource( 2 )
