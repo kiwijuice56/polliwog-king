@@ -4,7 +4,7 @@ Small video game created for a Cy-Ranch 2020 game jam
 
 Polliwog king is a short & sweet 2D platformer. You star as an evil frog king who is out to defeat the fairies. Eat your enemies and pave your path as the evil frog overlord!
 
-![Polliwog King Screenshot](https://github.com/kiwijuice56/PolliwogKing/img.png?raw=true)
+![Polliwog King Screenshot](https://github.com/kiwijuice56/PolliwogKing/blob/master/img.PNG?raw=true)
 
 ## Controls
 
