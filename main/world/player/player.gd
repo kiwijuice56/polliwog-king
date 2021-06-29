@@ -69,6 +69,7 @@ func score_updated(new_score):
 	emit_signal("score_updated", score)
 
 func time_updated(new_time):
+# warning-ignore:narrowing_conversion
 	time = round(new_time)
 	emit_signal("time_updated", time)
 ###
@@ -199,15 +200,15 @@ func _input(event):
 		dir.x = -1
 	if Input.is_action_pressed("look_up"):
 		dir.y = -1
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if event.is_action_pressed("jump", false) and is_on_floor():
 		jump_steps = 1
 		audio_stream.play_sound("jump")
 	#Flip sprites before shoot can lock direction
 	animation()
-	if Input.is_action_just_pressed("shoot") and tongue_timer.is_stopped():
+	if event.is_action_pressed("shoot", false)  and tongue_timer.is_stopped():
 		tongue_timer.start(tongue_delay)
 		spit_tongue()
-	if Input.is_action_just_pressed("reset"):
+	if event.is_action_pressed("reset", false):
 		self.life = 0
 
 func _ready():

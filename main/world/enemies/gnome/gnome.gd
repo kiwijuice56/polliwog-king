@@ -18,7 +18,6 @@ func shoot():
 	if not target:
 		anim.current_animation = "idle"
 		return
-	var angle = 360/bullet_num
 	var new_bullet : Area2D = bullet.instance()
 	new_bullet.dir = dir
 	new_bullet.target = target

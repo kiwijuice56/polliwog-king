@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Eric Skiff - Underclocked (underunderclocked mix).mp3-87d4305ea11c908922dd7ab5ded8a9f7.mp3str"
+
+[deps]
+
+source_file="res://main/gui/Eric Skiff - Underclocked (underunderclocked mix).mp3"
+dest_files=[ "res://.import/Eric Skiff - Underclocked (underunderclocked mix).mp3-87d4305ea11c908922dd7ab5ded8a9f7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

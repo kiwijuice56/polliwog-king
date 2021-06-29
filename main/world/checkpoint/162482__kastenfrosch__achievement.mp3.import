@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/162482__kastenfrosch__achievement.mp3-a6add63e0ea1a526603b00bd59ef43e7.mp3str"
+
+[deps]
+
+source_file="res://main/world/checkpoint/162482__kastenfrosch__achievement.mp3"
+dest_files=[ "res://.import/162482__kastenfrosch__achievement.mp3-a6add63e0ea1a526603b00bd59ef43e7.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://main/gui/title/b1.png" type="Texture" id=1]
 [ext_resource path="res://main/gui/title/title.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://main/gui/title/start_button.gd" type="Script" id=4]
 [ext_resource path="res://main/world/levels/level1/background1.png" type="Texture" id=5]
 [ext_resource path="res://main/world/levels/tilesets/tileset.tres" type="TileSet" id=6]
-[ext_resource path="res://main/gui/font/AtlantisInternational-jen0.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://main/world/player/player.png" type="Texture" id=8]
 
 [sub_resource type="GDScript" id=1]
@@ -33,11 +32,6 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 1 ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 15
-outline_size = 1
-font_data = ExtResource( 7 )
-
 [node name="Title" type="CanvasLayer"]
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -63,10 +57,8 @@ script = SubResource( 1 )
 "anims/idle (copy)" = SubResource( 2 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -167.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/margin_right = 4
@@ -81,13 +73,14 @@ __meta__ = {
 margin_left = 4.0
 margin_top = 5.0
 margin_right = 252.0
-margin_bottom = 166.0
+margin_bottom = 191.0
 custom_constants/separation = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
 margin_left = 57.0
+margin_top = 56.0
 margin_right = 190.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 6
 size_flags_vertical = 6
 custom_constants/separation = 10
@@ -109,20 +102,3 @@ size_flags_vertical = 6
 texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 3 )
 script = ExtResource( 4 )
-
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
-margin_top = 74.0
-margin_right = 248.0
-margin_bottom = 161.0
-size_flags_horizontal = 3
-size_flags_vertical = 2
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Credits:
- -Programming and Art: Eric Alfaro
- -Music: Kirby Super Star, ripped by GilvaSunner
- -Music Editing: Jacqueline Gutierrez"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
