@@ -25,3 +25,13 @@ Pixie|![](https://github.com/kiwijuice56/PolliwogKing/blob/master/readme_images/
 Ladybug|![](https://github.com/kiwijuice56/PolliwogKing/blob/master/readme_images/ladybug.png?raw=true)|Edible, harmful to touch, shoots pellets
 Spiney|![](https://github.com/kiwijuice56/PolliwogKing/blob/master/readme_images/spiney.png?raw=true)|Inedible, harmful to touch
 Gnome|![](https://github.com/kiwijuice56/PolliwogKing/blob/master/readme_images/gnome.png?raw=true)|Edible, harmful to touch, shoots tracking missile
+
+## Credits
+### Music
+Eric Skiff - Underclocked - Available at http://EricSkiff.com/music.
+
+Jeremy Blake - Powerup! - Available at https://www.youtube.com/watch?v=l7SwiFWOQqM.
+
+William Rosati - Floating Also - Available at https://www.youtube.com/watch?v=HHYOBwzT4u4.
+
+Kubbi - Digestive biscuit - Available at https://www.youtube.com/watch?v=PFbYfgStDQc.
