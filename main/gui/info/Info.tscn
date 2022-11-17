@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://main/gui/font/bold.tres" type="DynamicFont" id=1]
 [ext_resource path="res://main/gui/info/pause_info.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://main/gui/info/score/score.gd" type="Script" id=11]
 [ext_resource path="res://main/gui/info/time/time.gd" type="Script" id=12]
 [ext_resource path="res://main/gui/intro/tile.png" type="Texture" id=13]
+[ext_resource path="res://main/gui/info/time/clock.png" type="Texture" id=14]
 
 [node name="Info" type="CanvasLayer"]
 
@@ -36,34 +37,50 @@ margin_right = 221.0
 margin_bottom = 63.0
 
 [node name="Row" type="HBoxContainer" parent="OnScreenData/VBoxContainer"]
-margin_left = 54.0
+margin_left = 112.0
 margin_right = 218.0
 margin_bottom = 15.0
 size_flags_horizontal = 10
 size_flags_vertical = 0
 
 [node name="Score" type="Label" parent="OnScreenData/VBoxContainer/Row"]
-margin_right = 72.0
+margin_right = 36.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
-text = "Score: 000000"
+text = "000000"
 script = ExtResource( 11 )
 
-[node name="Time" type="Label" parent="OnScreenData/VBoxContainer/Row"]
-margin_left = 76.0
-margin_right = 125.0
+[node name="HBoxContainer" type="HBoxContainer" parent="OnScreenData/VBoxContainer/Row"]
+margin_left = 40.0
+margin_right = 74.0
+margin_bottom = 15.0
+custom_constants/separation = 1
+
+[node name="Icon2" type="TextureRect" parent="OnScreenData/VBoxContainer/Row/HBoxContainer"]
+margin_right = 15.0
+margin_bottom = 15.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="OnScreenData/VBoxContainer/Row/HBoxContainer"]
+margin_left = 16.0
+margin_right = 34.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
-text = "Time: 000"
+text = "000"
 script = ExtResource( 12 )
 
 [node name="CoinIcon" type="HBoxContainer" parent="OnScreenData/VBoxContainer/Row"]
-margin_left = 129.0
-margin_right = 164.0
+margin_left = 78.0
+margin_right = 106.0
 margin_bottom = 15.0
-custom_constants/separation = 2
+custom_constants/separation = 1
 script = ExtResource( 5 )
 
 [node name="Icon" type="TextureRect" parent="OnScreenData/VBoxContainer/Row/CoinIcon"]
@@ -77,12 +94,13 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="OnScreenData/VBoxContainer/Row/CoinIcon"]
-margin_left = 17.0
-margin_right = 35.0
+margin_left = 16.0
+margin_right = 28.0
 margin_bottom = 15.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.172549, 0.141176, 0.12549, 1 )
-text = "x00"
+custom_constants/shadow_offset_x = -9
+text = "00"
 align = 1
 valign = 1
 __meta__ = {
@@ -141,7 +159,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="PauseScreen/MarginContainer"]
 margin_left = 6.0
 margin_top = 6.0
-margin_right = 250.0
+margin_right = 218.0
 margin_bottom = 201.0
 custom_constants/separation = 8
 __meta__ = {
@@ -177,6 +195,7 @@ Make it to the end of the level and eat as many fairies as you can! (You can't e
 autowrap = true
 
 [node name="Help" type="MarginContainer" parent="."]
+visible = false
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -189,8 +208,8 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Help"]
 pause_mode = 2
-margin_left = 209.0
-margin_right = 253.0
+margin_left = 177.0
+margin_right = 221.0
 margin_bottom = 33.0
 size_flags_horizontal = 10
 custom_fonts/font = ExtResource( 1 )

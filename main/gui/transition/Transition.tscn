@@ -21,7 +21,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -192 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -142 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -192 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, -142 ) ]
 }
 
 [node name="Transition" type="CanvasLayer"]
@@ -57,8 +57,8 @@ __meta__ = {
 }
 
 [node name="Yellow" type="ColorRect" parent="VBoxContainer"]
-margin_right = 108.0
-margin_bottom = 192.0
+margin_right = 92.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 7
 color = Color( 1, 0.709804, 0.0470588, 1 )
@@ -86,15 +86,16 @@ __meta__ = {
 }
 
 [node name="Tris" type="TextureRect" parent="VBoxContainer"]
-margin_left = 108.0
-margin_right = 148.0
-margin_bottom = 192.0
+margin_left = 92.0
+margin_right = 132.0
+margin_bottom = 142.0
 texture = ExtResource( 2 )
+stretch_mode = 4
 
 [node name="Purple" type="ColorRect" parent="VBoxContainer"]
-margin_left = 148.0
-margin_right = 256.0
-margin_bottom = 192.0
+margin_left = 132.0
+margin_right = 224.0
+margin_bottom = 142.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color( 0.701961, 0.0235294, 0.937255, 1 )

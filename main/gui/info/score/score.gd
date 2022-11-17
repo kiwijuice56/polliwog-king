@@ -5,4 +5,4 @@ func _ready():
 	score_updated(0)
 
 func score_updated(new_score):
-	text = "Score: " + str(new_score).pad_zeros(6)
+	text = str(new_score).pad_zeros(6)

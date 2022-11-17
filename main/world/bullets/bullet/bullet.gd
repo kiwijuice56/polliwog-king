@@ -23,4 +23,5 @@ func death():
 	queue_free()
 
 func _physics_process(delta):
-	position += dir * speed
+	position += dir * speed * delta
+	speed *= 1 - delta

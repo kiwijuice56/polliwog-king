@@ -126,7 +126,7 @@ tracks/0/keys = {
 extents = Vector2( 7.5, 7.5 )
 
 [sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 2, 2 )
+extents = Vector2( 6, 6 )
 
 [sub_resource type="Animation" id=11]
 length = 0.4
@@ -216,8 +216,8 @@ anims/hurt = SubResource( 11 )
 anims/okay = SubResource( 12 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 0, -6 )
 current = true
-smoothing_enabled = true
 smoothing_speed = 7.0
 offset_v = -0.6
 
