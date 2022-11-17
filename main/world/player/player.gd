@@ -5,6 +5,7 @@ export var max_jump_steps := 12
 export var speed := 60.0
 export var gravity := 12.0
 export var invincibility := 2.0
+export var friction := 0.35
 
 export var size_step := 1
 export var max_size_steps := 3
@@ -14,8 +15,11 @@ export var tongue_offset := 6.0
 
 var can_move = true
 var vel := Vector2()
+var real_vel := Vector2()
 var dir := Vector2(1,0)
-var jump_steps := 0
+var jumping := false
+
+
 var tongue = preload("res://main/world/player/tongue/TongueTip.tscn").instance()
 var level_finished = preload("res://main/gui/level_finish/LevelFinish.tscn")
 
@@ -178,15 +182,8 @@ func animation():
 		sprite.scale.x = -1
 		mouth.scale.x = -1
 
-#Used for holding for higher jumps
-func check_pressed_jumps():
-	if jump_steps > 0 and jump_steps <= max_jump_steps:
-		if Input.is_action_pressed("jump"):
-			vel.y += jump_height/jump_steps
-			jump_steps += 1
-
 #Takes in input
-func _input(event):
+func input():
 	vel.x = 0
 	dir.y = 0
 	if not can_move:
@@ -200,15 +197,22 @@ func _input(event):
 		dir.x = -1
 	if Input.is_action_pressed("look_up"):
 		dir.y = -1
-	if event.is_action_pressed("jump", false) and is_on_floor():
-		jump_steps = 1
-		audio_stream.play_sound("jump")
+	if Input.is_action_just_pressed("jump") or (Input.is_action_pressed("jump") and not $JumpBufferTimer.is_stopped()):
+		if is_on_floor():
+			real_vel.y -= jump_height
+			audio_stream.play_sound("jump")
+			jumping = true
+			$JumpBufferTimer.stop()
+		else:
+			$JumpBufferTimer.start()
+	if Input.is_action_just_released("jump") and jumping and -real_vel.y > jump_height / 4:
+		real_vel.y += jump_height / 4
 	#Flip sprites before shoot can lock direction
 	animation()
-	if event.is_action_pressed("shoot", false)  and tongue_timer.is_stopped():
+	if Input.is_action_just_pressed("shoot") and tongue_timer.is_stopped():
 		tongue_timer.start(tongue_delay)
 		spit_tongue()
-	if event.is_action_pressed("reset", false):
+	if Input.is_action_just_pressed("reset"):
 		self.life = 0
 
 func _ready():
@@ -217,14 +221,28 @@ func _ready():
 	$TongueTimer.connect("timeout", self, "tongue_back")
 	$Timer.connect("timeout", self, "death")
 
-#Main Loop
 func _physics_process(delta):
-	self.time = timer.time_left
-	vel.y += gravity
-	check_pressed_jumps()
-	move_and_slide(vel, Vector2(0, -1))
 	if is_on_floor():
-		jump_steps = 0
-		vel.y = 0
-	if is_on_ceiling():
-		vel.y -= vel.y/2
+		real_vel.y = gravity
+		jumping = false
+	elif is_on_ceiling():
+		real_vel.y = gravity - gravity / 2
+	else:
+		real_vel.y += gravity
+	
+	self.time = timer.time_left
+	input()
+	
+	if is_on_floor():
+		$JumpBufferTimer.stop()
+	
+	real_vel.x += vel.x * friction
+	real_vel.x = clamp(real_vel.x, -speed, speed)
+	
+	if vel.x == 0:
+		if abs(real_vel.x) < speed * friction:
+			real_vel.x = 0
+		else:
+			real_vel.x -= sign(real_vel.x) * speed * friction
+		
+	move_and_slide(real_vel, Vector2(0, -1))
