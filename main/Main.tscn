@@ -15,7 +15,7 @@ __meta__ = {
 res://main/world/levels/level2/Level2.tscn
 res://main/world/levels/level3/Level3.tscn"
 }
-level_paths = [ "res://main/world/levels/level1/Level1.tscn", "res://main/world/levels/level2/Level2.tscn", "res://main/world/levels/level3/Level3.tscn" ]
+level_paths = [ "res://main/world/levels/level3/Level3.tscn", "res://main/world/levels/level2/Level2.tscn", "res://main/world/levels/level3/Level3.tscn" ]
 
 [node name="Title" parent="." instance=ExtResource( 5 )]
 

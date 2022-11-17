@@ -11,7 +11,7 @@
 [ext_resource path="res://main/world/player/sound/fall.wav" type="AudioStream" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5, 7.5 )
+extents = Vector2( 7.5, 7.5 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "crouch"
@@ -122,10 +122,10 @@ tracks/0/keys = {
 "values": [ 7, 10, 11, 10 ]
 }
 
-[sub_resource type="CircleShape2D" id=14]
+[sub_resource type="CircleShape2D" id=9]
 radius = 7.0
 
-[sub_resource type="CircleShape2D" id=13]
+[sub_resource type="CircleShape2D" id=10]
 radius = 4.0
 
 [sub_resource type="Animation" id=11]
@@ -193,7 +193,7 @@ collision_mask = 1656
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 position = Vector2( 0, 2.5 )
-shape = SubResource( 14 )
+shape = SubResource( 9 )
 
 [node name="Mouth" type="Area2D" parent="."]
 collision_layer = 0
@@ -201,7 +201,7 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mouth"]
 position = Vector2( 3, -4 )
-shape = SubResource( 13 )
+shape = SubResource( 10 )
 disabled = true
 
 [node name="TongueTimer" type="Timer" parent="."]
