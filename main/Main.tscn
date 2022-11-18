@@ -2,11 +2,11 @@
 
 [ext_resource path="res://main/main.gd" type="Script" id=1]
 [ext_resource path="res://main/music.gd" type="Script" id=2]
-[ext_resource path="res://main/world/levels/level3/William Rosati - Floating Also.mp3" type="AudioStream" id=3]
-[ext_resource path="res://main/world/levels/level1/Jeremy Blake - Powerup!.mp3" type="AudioStream" id=4]
+[ext_resource path="res://main/world/levels/level1/level1.mp3" type="AudioStream" id=3]
+[ext_resource path="res://main/gui/title.mp3" type="AudioStream" id=4]
 [ext_resource path="res://main/gui/title/Title.tscn" type="PackedScene" id=5]
-[ext_resource path="res://main/gui/Eric Skiff - Underclocked (underunderclocked mix).mp3" type="AudioStream" id=6]
-[ext_resource path="res://main/world/levels/level2/Kubbi - Digestive biscuit.mp3" type="AudioStream" id=7]
+[ext_resource path="res://main/world/levels/level3/level3.mp3" type="AudioStream" id=6]
+[ext_resource path="res://main/world/levels/level2/level2.mp3" type="AudioStream" id=7]
 
 [node name="Main" type="Node"]
 script = ExtResource( 1 )
@@ -15,15 +15,15 @@ __meta__ = {
 res://main/world/levels/level2/Level2.tscn
 res://main/world/levels/level3/Level3.tscn"
 }
-level_paths = [ "res://main/world/levels/level3/Level3.tscn", "res://main/world/levels/level2/Level2.tscn", "res://main/world/levels/level3/Level3.tscn" ]
+level_paths = [ "res://main/world/levels/level1/Level1.tscn", "res://main/world/levels/level2/Level2.tscn", "res://main/world/levels/level3/Level3.tscn" ]
 
 [node name="Title" parent="." instance=ExtResource( 5 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
-volume_db = -6.0
+volume_db = -15.0
 autoplay = true
 script = ExtResource( 2 )
-songs = [ ExtResource( 4 ), ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ) ]
+songs = [ ExtResource( 3 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 4 ) ]
 
 [node name="Tween" type="Tween" parent="Music"]

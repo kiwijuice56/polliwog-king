@@ -28,10 +28,10 @@ texture = ExtResource( 3 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1052, 500 )
 
-[node name="Checkpoint" parent="." index="2"]
+[node name="Checkpoint" parent="." index="3"]
 position = Vector2( 1832, -192 )
 
-[node name="Startingpoint" parent="." index="3"]
+[node name="Startingpoint" parent="." index="4"]
 position = Vector2( -112, 0 )
 
 [node name="1" type="Position2D" parent="PathPoints" index="0"]
@@ -1245,7 +1245,7 @@ position = Vector2( 2280, -360 )
 [node name="Coin27" parent="Collectables" index="32" instance=ExtResource( 10 )]
 position = Vector2( 2264, -360 )
 
-[node name="Goal" parent="." index="8"]
+[node name="Goal" parent="." index="9"]
 position = Vector2( 1920, -672 )
 
 [node name="Sprite" parent="Goal" index="1"]

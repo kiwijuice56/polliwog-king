@@ -43,7 +43,7 @@ func way_backward():
 func _process(delta):
 	line.points[0] = -Vector2(position.x + offset * orientation, position.y + offset)
 	outline.points[0] = -Vector2(position.x + offset * orientation, position.y + offset)
-	if attached: attached.global_position = global_position
+	if is_instance_valid(attached): attached.global_position = global_position
 
 func body_entered(body):
 	if forward:

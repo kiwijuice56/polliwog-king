@@ -15,14 +15,15 @@ damage = 0.5
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource( 1 )
 
-[node name="Sprite" parent="." index="1"]
-texture = ExtResource( 3 )
-
-[node name="Trail" parent="." index="4"]
+[node name="Trail" parent="." index="1"]
+modulate = Color( 1, 0.741176, 0.752941, 1 )
 amount = 16
 lifetime = 0.5
 speed_scale = 1.5
 local_coords = false
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
 
 [node name="Explosion" parent="." index="5"]
 amount = 32

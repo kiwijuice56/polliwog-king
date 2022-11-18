@@ -160,7 +160,7 @@ __meta__ = {
 margin_left = 6.0
 margin_top = 6.0
 margin_right = 218.0
-margin_bottom = 201.0
+margin_bottom = 273.0
 custom_constants/separation = 8
 __meta__ = {
 "_edit_use_anchors_": false
@@ -177,21 +177,17 @@ text = "Paused"
 
 [node name="Label2" type="Label" parent="PauseScreen/MarginContainer/HBoxContainer"]
 margin_left = 45.0
-margin_right = 244.0
-margin_bottom = 195.0
+margin_right = 212.0
+margin_bottom = 267.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Controls:
- -Run: Arrow keys or AD keys
- -Look up: Up arrow or W
- -Jump: Space bar
- -Tongue: Shift, Left Mouse, F, or J
- -Pause/Unpause: P
- -Fullscreen/Exit Fullscreen: ESC
-Make it to the end of the level and eat as many fairies as you can! (You can't eat the spineys though!)
-"
+text = "
+P to unpause
+R to reset
+Z to eat
+Space to jump"
 autowrap = true
 
 [node name="Help" type="MarginContainer" parent="."]

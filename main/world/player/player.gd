@@ -224,6 +224,8 @@ func _ready():
 func _physics_process(delta):
 	if is_on_floor():
 		real_vel.y = gravity
+		if jumping:
+			audio_stream.play_sound("step")
 		jumping = false
 	elif is_on_ceiling():
 		real_vel.y = gravity - gravity / 2

@@ -28,10 +28,6 @@ Gnome|![](https://github.com/kiwijuice56/PolliwogKing/blob/master/readme_images/
 
 ## Credits
 ### Music
-Eric Skiff - Underclocked - Available at http://EricSkiff.com/music.
+The music in the game is free from the HeatlyBros:
 
-Jeremy Blake - Powerup! - Available at https://www.youtube.com/watch?v=l7SwiFWOQqM.
-
-William Rosati - Floating Also - Available at https://www.youtube.com/watch?v=HHYOBwzT4u4.
-
-Kubbi - Digestive biscuit - Available at https://www.youtube.com/watch?v=PFbYfgStDQc.
+https://www.youtube.com/user/HeatleyBros
